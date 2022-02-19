@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">EspressoTesting</string>
+
+    <string-array name="data_name">
+        <item>Textbox</item>
+        <item>Ahmad Yani</item>
+        <item>Sutomo</item>
+        <item>Gatot Soebroto</item>
+        <item>Ki Hadjar Dewantarai</item>
+        <item>Mohammad Hatta</item>
+        <item>Soedirman</item>
+        <item>Soekarno</item>
+        <item>Soepomo</item>
+        <item>Tan Malaka</item>
+    </string-array>
+
+    <string-array name="data_description">
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+        <item>Validate the textview using espresso.</item>
+    </string-array>
+
+
+</resources>
