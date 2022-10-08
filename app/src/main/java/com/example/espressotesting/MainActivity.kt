@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             val userName = username_Textbox.text.toString();
             val password = password_Textbox.text.toString();
 
-             if (userName == "user" && password == "user") {
+             if (userName == "pradap@espresso.com" && password == "espresso_password") {
 
                 Toast.makeText(this, "Valid Login attempted", Toast.LENGTH_SHORT).show();
                  it.hideKeyboard()
