@@ -41,5 +41,3 @@ jobs:
     - name: upload instrumentation file
       run: | 
             curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/test-suite" \ -F "file=@app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
-
-
