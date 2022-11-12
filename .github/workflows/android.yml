@@ -37,13 +37,14 @@ jobs:
       run: ls
     - name: upload test file
       run: |
-            API_RESPONSE=$(curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/app" \-F "file=@app/build/outputs/apk/debug/app-debug.apk");
-            app_url=("$API_RESPONSE" | jq -r '.app_url')    
-            echo $API_RESPONSE
-            echo app_url
+            APP_RESPONSE=$(curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/app" \-F "file=@app/build/outputs/apk/debug/app-debug.apk");
+            echo "APP_RESPONSE" | jq -r '.app_url'        
+            echo APP_RESPONSE
     - name: upload instrumentation file
-      run: | 
-            curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/test-suite" \-F "file=@app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
-    - name: final test
       run: |
-            echo "$API_RESPONSE"
+            INSTRUMENTATION_RESPONSE=$(curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/test-suite" \-F "file=@app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk")
+            echo "INSTRUMENTATION_RESPONSE" | jq -r '.app_url'        
+            echo INSTRUMENTATION_RESPONSE
+    - name: Trigger the first test on BrowserStack
+      run: |
+            BROWSER_STACK_TEST=$(curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/build" \ -d '{"app": ""APP_RESPONSE" | jq -r '.app_url'", "testSuite": ""INSTRUMENTATION_RESPONSE" | jq -r '.app_url'", "devices": ["Samsung Galaxy S9 Plus-9.0"]}' \-H "Content-Type: application/json" 
