@@ -19,8 +19,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: gradle
-    - name: check the folder path
-      run: ls
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
@@ -35,6 +33,8 @@ jobs:
       with:
         name: espresso-test-apk
         path: app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+    - name: check the folder path
+      run: ls
     - name: upload test file
       run: | 
             curl -u "pradapjackiejack1:SmRsFRzByBRXzHxsFy6z" \ -X POST "https://api-cloud.browserstack.com/app-automate/espresso/v2/app" \-F "file=@/app/build/outputs/apk/debug/app-debug.apk"
